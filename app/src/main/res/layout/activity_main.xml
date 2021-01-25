@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <Button
+        android:id="@+id/btntoast"
+        android:layout_width="match_parent"
+        android:layout_height="116dp"
+        android:text="預設Toast" />
+
+    <Button
+        android:id="@+id/btncustom"
+        android:layout_width="match_parent"
+        android:layout_height="116dp"
+        android:text="自定義Toast" />
+
+    <Button
+        android:id="@+id/btndialog1"
+        android:layout_width="match_parent"
+        android:layout_height="116dp"
+        android:text="按鍵式AlertDialog" />
+
+    <Button
+        android:id="@+id/btndialog2"
+        android:layout_width="match_parent"
+        android:layout_height="116dp"
+        android:text="列表式AlertDialog" />
+
+    <Button
+        android:id="@+id/btndialog3"
+        android:layout_width="match_parent"
+        android:layout_height="116dp"
+        android:text="單選式AlertDialog" />
+</LinearLayout>
