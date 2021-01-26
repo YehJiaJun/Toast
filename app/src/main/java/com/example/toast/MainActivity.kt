@@ -1,6 +1,7 @@
 package com.example.toast
 
 import android.app.Activity
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
@@ -19,6 +20,8 @@ class MainActivity : AppCompatActivity() {
         val btndialog1 = findViewById<Button>(R.id.btndialog1);
         val btndialog2 = findViewById<Button>(R.id.btndialog2);
         val btndialog3 = findViewById<Button>(R.id.btndialog3);
+        //宣告陣列
+        val item = arrayOf("選項1","選項2","選項3","選項4","選項5")
         //按鈕監聽
         //預設Toast
         btnToast.setOnClickListener(){
@@ -47,15 +50,38 @@ class MainActivity : AppCompatActivity() {
                 .setNeutralButton("離開（左按鈕）"){dialog, which ->
                     exitProcess(0)
                 }
-                .setNegativeButton("繼續（按鈕）"){dialog, which ->
+                .setPositiveButton("繼續（按鈕）"){dialog, which ->
 
                 }
-                .setPositiveButton("中間"){dialog, which ->
+                .setNegativeButton("中間"){dialog, which ->
                     Toast.makeText(this,"這是中間按鈕",Toast.LENGTH_SHORT).show()
                 }
                 .show()
         }
-
+        //列表式對話框
+        btndialog2.setOnClickListener(){
+            AlertDialog.Builder(this)
+                    .setTitle("列表式對話框")
+                    .setItems(item){dialog: DialogInterface?, i: Int ->
+                        Toast.makeText(this,"你選的是"+item[i],Toast.LENGTH_SHORT).show()
+                    }
+                    .show()
+        }
+        //單選式對話框
+        btndialog3.setOnClickListener {
+            var num:Int = 0;
+            AlertDialog.Builder(this)
+                    .setTitle("單選式對話框")
+                    //監聽選的項目
+                    .setSingleChoiceItems(item,0){dialog: DialogInterface?, i: Int ->
+                        num = i;
+                    }
+                    //用Toast顯示出選擇的項目
+                    .setPositiveButton("確定"){dialog, which ->
+                        Toast.makeText(this,"你選的是"+ item[num],Toast.LENGTH_SHORT).show()
+                    }
+                    .show()
+        }
     }
     fun toast(y:Int){
         //宣告Toast
